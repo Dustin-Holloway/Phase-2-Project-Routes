@@ -48,9 +48,13 @@ input {
 }
 
 .list {
+  border-radius: 5px;
+  padding-top: 25px;
   margin-top: 50px;
-  margin-left: 25px;
-
+  margin-left: 50px;
+  background-color: rgb(135, 119, 91);
+  font-weight: bolder;
+  color: white;
   text-align: left;
   justify-content: left;
   display: block;

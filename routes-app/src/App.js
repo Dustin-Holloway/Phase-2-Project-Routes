@@ -5,7 +5,7 @@ import TripForm from "./tripform";
 import { Switch, Route } from "react-router-dom";
 import CardContainer from "./card_container";
 import { useState, useEffect } from "react";
-// import Favorites from "./components/favorites";
+import Favorites from "./favorites";
 
 function App() {
   const apiKey = process.env.REACT_APP_Token;
@@ -21,18 +21,25 @@ function App() {
 
   function handleClick(park) {
     console.log(park);
-    fetch("http://localhost:4000/posts", {
-      method: "POST",
-      headers: { "Content-type": "Application/json" },
-      body: JSON.stringify({ name: park.name }),
-    })
-      .then((res) => res.json())
-      .then((data) => addToList(data));
+    if (!myParks.includes(park)) {
+      console.log("HEY");
+      return setMyParks([...myParks, park]);
+    } else {
+      alert("It's already on your list");
+    }
+    // fetch("http://localhost:4000/posts", {
+    //   method: "POST",
+    //   headers: { "Content-type": "Application/json" },
+    //   body: JSON.stringify({ name: park.name }),
+    // })
+    //   .then((res) => res.json())
+    //   .then((park) => addToList(park));
   }
 
   function addToList(park) {
     if (!myParks.includes(park)) {
-      setMyParks([...myParks, park]);
+      console.log("HEY");
+      return setMyParks([...myParks, park]);
     } else {
       alert("It's already on your list");
     }
@@ -60,7 +67,9 @@ function App() {
           <SubscribeForm />
           <TripForm />
         </Route>
-        <Route path="/Favorites">{/* <Favorites myParks={myParks} /> */}</Route>
+        <Route path="/Favorites">
+          <Favorites myParks={myParks} />
+        </Route>
       </Switch>
     </div>
   );

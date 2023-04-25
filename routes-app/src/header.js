@@ -14,7 +14,7 @@ function Header() {
         <Link to="/Form">
           <li>Form</li>
         </Link>
-        <Link to="/Favoties">
+        <Link to="/Favorites">
           <li>Favorites</li>
         </Link>
       </ul>
