@@ -19,27 +19,24 @@ function App() {
   }, []);
 
   function handleClick(park) {
-    console.log("clicked");
-
-    if (!myParks.includes(park)) {
-      setMyParks([...myParks, park]);
-    } else {
-      alert("It's already on your list");
-    }
-
-    addToList(park);
-  }
-
-  function addToList(park) {
     console.log(park);
-    fetch("http://localhost:3000/Suggestions", {
+    fetch("http://localhost:4000/posts", {
       method: "POST",
       headers: { "Content-type": "Application/json" },
       body: JSON.stringify({ name: park.name }),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => addToList(data));
   }
+
+  function addToList(park) {
+    if (!myParks.includes(park)) {
+      setMyParks([...myParks, park]);
+    } else {
+      alert("It's already on your list");
+    }
+  }
+
   return (
     <div>
       <Header className="header" />
