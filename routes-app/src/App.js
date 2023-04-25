@@ -55,7 +55,7 @@ function App() {
           <button className="search_btn"> Search </button>
           <CardContainer parks={parks} handleClick={handleClick} />
         </Route>
-        <Route exact path="/Game">
+        <Route exact path="/Form">
           <SubscribeForm />
         </Route>
         <Route path="/Favorites">{/* <Favorites myParks={myParks} /> */}</Route>
