@@ -1,12 +1,11 @@
-import react, {useState} from "react";
+import react, { useState } from "react";
 
 export default function SubscribeForm() {
-
   const [userEmail, setUserEmail] = useState("");
 
   function handleSubmit(e) {
-    e.preventDefault()
-    console.log(e.target.userEmail.value)
+    e.preventDefault();
+    console.log(e.target.userEmail.value);
   }
   return (
     <div>
@@ -25,4 +24,3 @@ export default function SubscribeForm() {
     </div>
   );
 }
-
