@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./header.js";
 import SubscribeForm from "./subscribeform";
+import TripForm from "./tripform";
 import { Switch, Route } from "react-router-dom";
 import CardContainer from "./card_container";
 import { useState, useEffect } from "react";
@@ -57,6 +58,7 @@ function App() {
         </Route>
         <Route exact path="/Form">
           <SubscribeForm />
+          <TripForm />
         </Route>
         <Route path="/Favorites">{/* <Favorites myParks={myParks} /> */}</Route>
       </Switch>
