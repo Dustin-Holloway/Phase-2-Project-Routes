@@ -6,7 +6,7 @@ export default function Card({ park }) {
   return (
     <div className="card">
       <img src={park.images[0].url} />
-      <h3>{park.name}</h3>
+      <h3 className="name">{park.name}</h3>
     </div>
   );
 }
