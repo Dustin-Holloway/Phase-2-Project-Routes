@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import React, { useState } from "react";
 
 export default function SubscribeForm() {
   const [userEmail, setUserEmail] = useState("");
@@ -8,7 +8,7 @@ export default function SubscribeForm() {
     console.log(e.target.userEmail.value);
   }
   return (
-    <div>
+    <div className="form-div">
       <form onSubmit={handleSubmit}>
         <label htmlFor="Subscribe">Subscribe</label>
         <input
