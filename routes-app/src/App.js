@@ -42,7 +42,7 @@ function App() {
   }
   return (
     <div>
-      <Header />
+      <Header className="header" />
 
       <Switch>
         <Route exact path="/">
@@ -56,11 +56,7 @@ function App() {
             placeholder="search by state..."
           ></input>
           <button className="search_btn"> Search </button>
-          <CardContainer
-            className="card_container"
-            parks={parks}
-            handleClick={handleClick}
-          />
+          <CardContainer parks={parks} handleClick={handleClick} />
         </Route>
         <Route exact path="/Game">
           <SubscribeForm />

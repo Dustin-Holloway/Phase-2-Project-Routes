@@ -1,9 +1,8 @@
 
 
 
-/* .header {
+.header {
   align-items: center;
-
   height: 100px;
   width: 100%;
   background-color: rgb(255, 255, 255);
@@ -15,7 +14,7 @@
   justify-content: end;
   font-size: 25px;
 
-} */
+}
 
 li {
   text-decoration: none;
@@ -25,8 +24,6 @@ li {
 }
 
 form {
-
-
   display: flex;
   flex-direction: column;
 }
@@ -72,4 +69,28 @@ input {
   border-radius: 10px;
   max-width: 300px;
   margin-bottom: 25px;
+}
+
+.card-container {
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  height: 800px;
+
+  flex-direction: row;
+
+}
+
+.card {
+  border-radius: 3px;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+
+}
+img {
+  width: 100%;
 }
