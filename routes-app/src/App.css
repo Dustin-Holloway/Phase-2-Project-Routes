@@ -72,14 +72,13 @@ input {
 }
 
 .card-container {
-
-  box-sizing: border-box;
-
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-wrap: wrap;
   max-width: 800px;
   height: 800px;
-
   flex-direction: row;
 
 }
