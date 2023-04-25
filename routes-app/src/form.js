@@ -1,4 +1,4 @@
-import react from "react";
+ranchimport react from "react";
 import "./App.css";
 
 export default function Form() {
