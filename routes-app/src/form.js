@@ -1,14 +1,25 @@
-import react from "react";
-import "./App.css";
+import react, { useState } from "react";
 
 export default function Form() {
+  const [userEmail, setUserEmail] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(e.target.userEmail.value);
+  }
   return (
     <div>
-      <form className="form-div">
-        <input type="text" placeholder="Park..."></input>
-        <input type="text" placeholder="State..."></input>
-        <input type="text"></input>
-        <textarea></textarea>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="Subscribe">Subscribe</label>
+        <input
+          onChange={(e) => setUserEmail(e.target.value)}
+          value={userEmail}
+          type="text"
+          id="userEmail"
+        />
+        {/* <input></input>
+        <input></input>
+        <input></input> */}
       </form>
     </div>
   );
