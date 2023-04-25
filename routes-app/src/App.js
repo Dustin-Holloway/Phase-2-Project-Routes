@@ -12,6 +12,7 @@ function App() {
 
   const [parks, setParks] = useState([]);
   const [myParks, setMyParks] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch(`https://developer.nps.gov/api/v1/parks?park&api_key=${apiKey}`)
@@ -45,6 +46,14 @@ function App() {
     }
   }
 
+  const filteredByState = parks.filter((park) =>
+    park.states.toLowerCase().includes(search.toLowerCase())
+  );
+
+  function handleOnSearch(e) {
+    setSearch(search);
+  }
+
   return (
     <div>
       <Header className="header" />
@@ -56,12 +65,17 @@ function App() {
         </Route>
         <Route path="/Gallery">
           <input
+            onChange={(e) => setSearch(e.target.value)}
             className="search"
             type="text"
-            placeholder="search by state..."
+            placeholder="Filter by State..."
+            name="search"
+            value={search}
           ></input>
-          <button className="search_btn"> Search </button>
-          <CardContainer parks={parks} handleClick={handleClick} />
+          {/* <button className="search-btn" onClick={(e) => handleOnSearch(e)}>
+            Search
+          </button> */}
+          <CardContainer parks={filteredByState} handleClick={handleClick} />
         </Route>
         <Route exact path="/Form">
           <SubscribeForm />
