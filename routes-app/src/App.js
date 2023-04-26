@@ -31,7 +31,6 @@ function App() {
   function handleClick(park) {
     console.log(park);
     if (!myParks.includes(park)) {
-      console.log("HEY");
       return setMyParks([...myParks, park]);
     } else {
       alert("It's already on your list");
