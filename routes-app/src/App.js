@@ -27,8 +27,10 @@ function App() {
     useEffect(()=> {
       fetch("http://localhost:4000/profile")
         .then((r)=>r.json())
-        .then((data)=>console.log(data))
-    },[])
+        .then((data)=>setUserInfo(data))
+      },[])
+
+
   
 
   useEffect(() => {
@@ -95,7 +97,7 @@ function App() {
         </Route>
         {/* <Route exact path="/Form"></Route> */}
         <Route path="/Favorites">
-          <Favorites myParks={myParks} />
+          <Favorites userInfo={userInfo} setUserInfo={setUserInfo} myParks={myParks} />
         </Route>
       </Switch>
     </div>
