@@ -6,15 +6,18 @@ import ParkForm from "./parkform";
 
 export default function Favorites({ myParks, renderPark, userInfo, setUserInfo }) {
   const [showPark, setShowPark] = useState(false);
+  const [renderedPark, setRenderedPark] = useState("");
 
-  function renderPark(e) {
-    console.log("park name:", { myParks });
-    setShowPark(!showPark);
+  function renderPark(park) {
+    setRenderedPark(park);
+    if (!showPark) {
+      setShowPark(!showPark);
+    }
   }
 
   const favoriteParks = myParks.map((park) => (
     <div>
-      <li key={park.id} onClick={renderPark}>
+      <li key={park.id} onClick={(e) => renderPark(park)}>
         {park.name}
       </li>
       <span></span>
@@ -27,7 +30,7 @@ export default function Favorites({ myParks, renderPark, userInfo, setUserInfo }
         <h1>Favorite Parks</h1>
         <ul>{favoriteParks}</ul>
       </div>
-      {showPark ? <Park park={myParks} key={myParks.id} /> : null}
+      {showPark ? <Park park={renderedPark} /> : null}
       <div className="">
         <TripForm />
         <ParkForm userInfo={userInfo} setUserInfo={setUserInfo} />
