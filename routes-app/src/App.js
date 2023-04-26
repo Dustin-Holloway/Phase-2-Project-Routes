@@ -22,6 +22,15 @@ function App() {
     return filteredByState.slice(indexOfFirstItem, indexOfLastItem);
   };
 
+  const [userInfo, setUserInfo]= useState([])
+
+    useEffect(()=> {
+      fetch("http://localhost:4000/profile")
+        .then((r)=>r.json())
+        .then((data)=>console.log(data))
+    },[])
+  
+
   useEffect(() => {
     fetch(`https://developer.nps.gov/api/v1/parks?park&api_key=${apiKey}`)
       .then((res) => res.json())
