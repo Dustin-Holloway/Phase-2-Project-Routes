@@ -8,8 +8,9 @@ export default function Favorites({ myParks }) {
 
   function renderPark(park) {
     setRenderedPark(park);
-
-    setShowPark(showPark);
+    if (!showPark) {
+      setShowPark(!showPark);
+    }
   }
 
   const favoriteParks = myParks.map((park) => (

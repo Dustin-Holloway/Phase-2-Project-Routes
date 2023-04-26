@@ -23,29 +23,18 @@ function App() {
   };
 
   useEffect(() => {
-    fetch(`https://developer.nps.gov/api/v1/parks?park&api_key=${apiKey}`)
+    fetch(`https://developer.nps.gov/api/v1/parks?limit=1000&api_key=${apiKey}`)
       .then((res) => res.json())
       .then((data) => setParks(data.data));
   }, []);
 
   function handleClick(park) {
     if (!myParks.includes(park)) {
-      return setMyParks([...myParks, park]);
-    } else {
-      alert("It's already on your list");
-    }
+      setMyParks([...myParks, park]);
+    } else return;
   }
 
-  // function addToList(park) {
-  //   if (!myParks.includes(park)) {
-  //     console.log("HEY");
-  //     return setMyParks([...myParks, park]);
-  //   } else {
-  //     alert("It's already on your list");
-  //   }
-  // }
-
-  const filteredByState = parks.filter((park) =>
+  const filteredByState = [...parks].filter((park) =>
     park.states.toLowerCase().includes(search.toLowerCase())
   );
 
