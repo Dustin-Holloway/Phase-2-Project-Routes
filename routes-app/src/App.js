@@ -6,6 +6,7 @@ import { Switch, Route } from "react-router-dom";
 import CardContainer from "./card_container";
 import { useState, useEffect } from "react";
 import Favorites from "./favorites";
+import Landing from "./landing";
 
 function App() {
   const apiKey = process.env.REACT_APP_Token;
@@ -55,14 +56,13 @@ function App() {
 
   return (
     <div>
-      <Header className="header" />
-
       <Switch>
         <Route exact path="/">
-          <h1>Routes on Routes</h1>
-          <h3>Cahen, Dominick, Dustin</h3>
+          <Landing />
         </Route>
         <Route path="/Gallery">
+          <Header className="header" />
+
           <input
             onChange={(e) => setSearch(e.target.value)}
             className="search"
@@ -71,9 +71,6 @@ function App() {
             name="search"
             value={search}
           ></input>
-          {/* <button className="search-btn" onClick={(e) => handleOnSearch(e)}>
-            Search
-          </button> */}
           <CardContainer
             parks={loadMoreResults()}
             handleClick={handleClick}
@@ -83,7 +80,7 @@ function App() {
             setCurrentPage={setCurrentPage}
           />
         </Route>
-        {/* <Route exact path="/Form"></Route> */}
+
         <Route path="/Favorites">
           <Favorites
             userInfo={userInfo}
@@ -91,7 +88,8 @@ function App() {
             myParks={myParks}
             setMyParks={setMyParks}
           />
-        </Route>
+          <Header className="header" />
+       </Route>
       </Switch>
     </div>
   );
