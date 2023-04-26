@@ -1,20 +1,24 @@
 
+.header li {
+  font-size: 30px;
+  color:rgba(237, 155, 15, 0.926);
+  font-weight: 400;
+  
+}
 
 
 .header {
   align-items: center;
-  height: 100px;
+  height: 150px;
   width: 100%;
-  background-color: rgb(117, 109, 109);
-  font-family: sans-serif;
-  font-weight: bolder;
-  color: white;
+  background-color: rgb(85, 80, 80);
   display: flex;
   flex-direction: row;
   justify-content: end;
-  font-size: 25px;
-  z-index: 2;
-
+  border-bottom-width: 5px;
+  border-bottom-color: rgb(241, 185, 30);
+  border-style: solid;
+  margin-bottom: 25px;
 }
 
 li {
@@ -22,6 +26,7 @@ li {
   display: inline-block;
   margin: 15px;
   padding-right: 25px;
+  font-size: 15px;
 }
 
 form {
@@ -144,7 +149,7 @@ img {
   background-color:rgb(135, 119, 91);
   width: 50%;
   position: absolute;
-  top: 115px;
+  top: 205px;
   left: 400px;
   border-radius: 5px;
   color: white;
@@ -156,6 +161,8 @@ img {
 .img-container {
 
   width: 75%;
+  height: 300px;
+  border-radius: 5px;
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
@@ -166,4 +173,13 @@ img {
 display: block;
 font-size: 15px;
 color: rgb(255, 255, 255);
+}
+
+.park-name {
+  position: relative;
+  top: -190px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight:300;
+  color: white;
+
 }
