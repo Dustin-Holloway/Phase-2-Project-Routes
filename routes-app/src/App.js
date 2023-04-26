@@ -84,12 +84,10 @@ function App() {
             setCurrentPage={setCurrentPage}
           />
         </Route>
-        <Route exact path="/Form">
-          <SubscribeForm />
-          <TripForm />
-        </Route>
+        {/* <Route exact path="/Form"></Route> */}
         <Route path="/Favorites">
           <Favorites myParks={myParks} />
+         
         </Route>
       </Switch>
     </div>
