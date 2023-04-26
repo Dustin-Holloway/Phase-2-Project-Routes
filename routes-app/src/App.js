@@ -29,7 +29,6 @@ function App() {
   }, []);
 
   function handleClick(park) {
-    console.log(park);
     if (!myParks.includes(park)) {
       return setMyParks([...myParks, park]);
     } else {
@@ -37,14 +36,14 @@ function App() {
     }
   }
 
-  function addToList(park) {
-    if (!myParks.includes(park)) {
-      console.log("HEY");
-      return setMyParks([...myParks, park]);
-    } else {
-      alert("It's already on your list");
-    }
-  }
+  // function addToList(park) {
+  //   if (!myParks.includes(park)) {
+  //     console.log("HEY");
+  //     return setMyParks([...myParks, park]);
+  //   } else {
+  //     alert("It's already on your list");
+  //   }
+  // }
 
   const filteredByState = parks.filter((park) =>
     park.states.toLowerCase().includes(search.toLowerCase())
@@ -89,7 +88,7 @@ function App() {
           <TripForm />
         </Route>
         <Route path="/Favorites">
-          <Favorites myParks={myParks} />
+          <Favorites myParks={myParks} setMyParks={setMyParks} />
         </Route>
       </Switch>
     </div>
