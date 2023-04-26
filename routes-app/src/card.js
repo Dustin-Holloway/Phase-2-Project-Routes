@@ -1,12 +1,17 @@
 import react from "react";
 import "./App.css";
+import { useState } from "react";
+import { IoHeartOutline, IoHeart } from "react-icons/io5";
 
-export default function Card({ park }) {
-  console.log(park.images[0].url);
+export default function Card({ park, handleClick }) {
+  const [liked, setLiked] = useState(true);
+
   return (
     <div className="card">
-      <img src={park.images[0].url} />
-      <h3>{park.name}</h3>
+      <span className="heart" onClick={(e) => setLiked(!liked)}>
+        {liked ? <IoHeartOutline /> : <IoHeart />}
+      </span>
+      <img src={park.images[0].url} onClick={(e) => handleClick(park)} />
     </div>
   );
 }

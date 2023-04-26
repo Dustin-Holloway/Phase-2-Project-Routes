@@ -5,13 +5,22 @@ import TripForm from "./tripform";
 import { Switch, Route } from "react-router-dom";
 import CardContainer from "./card_container";
 import { useState, useEffect } from "react";
-// import Favorites from "./components/favorites";
+import Favorites from "./favorites";
 
 function App() {
   const apiKey = process.env.REACT_APP_Token;
 
   const [parks, setParks] = useState([]);
   const [myParks, setMyParks] = useState([]);
+  const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const loadMoreResults = () => {
+    const itemsPerPage = 25;
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    return filteredByState.slice(indexOfFirstItem, indexOfLastItem);
+  };
 
   useEffect(() => {
     fetch(`https://developer.nps.gov/api/v1/parks?park&api_key=${apiKey}`)
@@ -20,27 +29,32 @@ function App() {
   }, []);
 
   function handleClick(park) {
-    console.log("clicked");
-
+    console.log(park);
     if (!myParks.includes(park)) {
-      setMyParks([...myParks, park]);
+      console.log("HEY");
+      return setMyParks([...myParks, park]);
     } else {
       alert("It's already on your list");
     }
-
-    addToList(park);
   }
 
   function addToList(park) {
-    console.log(park);
-    fetch("http://localhost:3000/Suggestions", {
-      method: "POST",
-      headers: { "Content-type": "Application/json" },
-      body: JSON.stringify({ name: park.name }),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    if (!myParks.includes(park)) {
+      console.log("HEY");
+      return setMyParks([...myParks, park]);
+    } else {
+      alert("It's already on your list");
+    }
   }
+
+  const filteredByState = parks.filter((park) =>
+    park.states.toLowerCase().includes(search.toLowerCase())
+  );
+
+  function handleOnSearch(e) {
+    setSearch(e.target.value);
+  }
+
   return (
     <div>
       <Header className="header" />
@@ -52,18 +66,32 @@ function App() {
         </Route>
         <Route path="/Gallery">
           <input
+            onChange={(e) => setSearch(e.target.value)}
             className="search"
             type="text"
-            placeholder="search by state..."
+            placeholder="Filter by State..."
+            name="search"
+            value={search}
           ></input>
-          <button className="search_btn"> Search </button>
-          <CardContainer parks={parks} handleClick={handleClick} />
+          {/* <button className="search-btn" onClick={(e) => handleOnSearch(e)}>
+            Search
+          </button> */}
+          <CardContainer
+            parks={loadMoreResults()}
+            handleClick={handleClick}
+            loadMoreResults={loadMoreResults}
+            currentPage={currentPage}
+            setParks={setParks}
+            setCurrentPage={setCurrentPage}
+          />
         </Route>
         <Route exact path="/Form">
           <SubscribeForm />
           <TripForm />
         </Route>
-        <Route path="/Favorites">{/* <Favorites myParks={myParks} /> */}</Route>
+        <Route path="/Favorites">
+          <Favorites myParks={myParks} />
+        </Route>
       </Switch>
     </div>
   );
