@@ -2,7 +2,7 @@ import react from "react";
 import Park from "./park";
 import { useState } from "react";
 import TripForm from "./tripform";
-import SubscribeForm from "./subscribeform";
+import ParkForm from "./parkform";
 
 export default function Favorites({ myParks, renderPark }) {
   const [showPark, setShowPark] = useState(false);
@@ -30,7 +30,7 @@ export default function Favorites({ myParks, renderPark }) {
       {showPark ? <Park park={myParks} key={myParks.id} /> : null}
       <div className="">
         <TripForm />
-        <SubscribeForm />
+        <ParkForm />
       </div>
     </div>
   );

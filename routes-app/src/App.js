@@ -1,6 +1,6 @@
 import "./App.css";
 import Header from "./header.js";
-import SubscribeForm from "./subscribeform";
+import ParkForm from "./parkform";
 import TripForm from "./tripform";
 import { Switch, Route } from "react-router-dom";
 import CardContainer from "./card_container";
@@ -87,7 +87,6 @@ function App() {
         {/* <Route exact path="/Form"></Route> */}
         <Route path="/Favorites">
           <Favorites myParks={myParks} />
-         
         </Route>
       </Switch>
     </div>
