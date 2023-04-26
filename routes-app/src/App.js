@@ -82,14 +82,17 @@ function App() {
         </Route>
 
         <Route path="/Favorites">
-<<<<<<< HEAD
+
           <Header className="header" />
 
-          <Favorites myParks={myParks} setMyParks={setMyParks} />
-=======
-          <Favorites userInfo={userInfo} setUserInfo={setUserInfo} myParks={myParks} />
->>>>>>> f6bd189 (working on user info post rqsts)
-        </Route>
+          <Favorites
+            userInfo={userInfo}
+            setUserInfo={setUserInfo}
+            myParks={myParks}
+            setMyParks={setMyParks}
+          />
+
+       </Route>
       </Switch>
     </div>
   );
