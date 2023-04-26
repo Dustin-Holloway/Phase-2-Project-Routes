@@ -12,9 +12,6 @@ function Header() {
         <Link to="/Gallery">
           <li>Gallery</li>
         </Link>
-        <Link to="/Form">
-          <li>Form</li>
-        </Link>
         <Link to="/Favorites">
           <li>Favorites</li>
         </Link>

@@ -183,3 +183,15 @@ color: rgb(255, 255, 255);
   color: white;
 
 }
+
+.landing-image {
+  position: relative;
+  top: -175px;
+}
+
+.landing-container h1 {
+  background-color: white;
+  position: relative;
+  top: 250px;
+  z-index: 2;
+}
