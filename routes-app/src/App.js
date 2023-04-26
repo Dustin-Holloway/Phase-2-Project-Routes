@@ -13,6 +13,14 @@ function App() {
   const [parks, setParks] = useState([]);
   const [myParks, setMyParks] = useState([]);
   const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const loadMoreResults = () => {
+    const itemsPerPage = 25;
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    return filteredByState.slice(indexOfFirstItem, indexOfLastItem);
+  };
 
   useEffect(() => {
     fetch(`https://developer.nps.gov/api/v1/parks?park&api_key=${apiKey}`)
@@ -28,13 +36,6 @@ function App() {
     } else {
       alert("It's already on your list");
     }
-    // fetch("http://localhost:4000/posts", {
-    //   method: "POST",
-    //   headers: { "Content-type": "Application/json" },
-    //   body: JSON.stringify({ name: park.name }),
-    // })
-    //   .then((res) => res.json())
-    //   .then((park) => addToList(park));
   }
 
   function addToList(park) {
@@ -51,7 +52,7 @@ function App() {
   );
 
   function handleOnSearch(e) {
-    setSearch(search);
+    setSearch(e.target.value);
   }
 
   return (
@@ -75,7 +76,14 @@ function App() {
           {/* <button className="search-btn" onClick={(e) => handleOnSearch(e)}>
             Search
           </button> */}
-          <CardContainer parks={filteredByState} handleClick={handleClick} />
+          <CardContainer
+            parks={loadMoreResults()}
+            handleClick={handleClick}
+            loadMoreResults={loadMoreResults}
+            currentPage={currentPage}
+            setParks={setParks}
+            setCurrentPage={setCurrentPage}
+          />
         </Route>
         <Route exact path="/Form">
           <SubscribeForm />
