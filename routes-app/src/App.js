@@ -23,6 +23,17 @@ function App() {
     return filteredByState.slice(indexOfFirstItem, indexOfLastItem);
   };
 
+  const [userInfo, setUserInfo]= useState([])
+
+    useEffect(()=> {
+      fetch("http://localhost:4000/profile")
+        .then((r)=>r.json())
+        .then((data)=>setUserInfo(data))
+      },[])
+
+
+  
+
   useEffect(() => {
     fetch(`https://developer.nps.gov/api/v1/parks?limit=1000&api_key=${apiKey}`)
       .then((res) => res.json())
@@ -71,10 +82,14 @@ function App() {
         </Route>
 
         <Route path="/Favorites">
+          <Favorites
+            userInfo={userInfo}
+            setUserInfo={setUserInfo}
+            myParks={myParks}
+            setMyParks={setMyParks}
+          />
           <Header className="header" />
-
-          <Favorites myParks={myParks} setMyParks={setMyParks} />
-        </Route>
+       </Route>
       </Switch>
     </div>
   );
