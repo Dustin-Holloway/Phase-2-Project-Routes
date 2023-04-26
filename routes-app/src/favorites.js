@@ -31,7 +31,7 @@ export default function Favorites({ myParks }) {
         <ul>{favoriteParks}</ul>
       </div>
       {showPark ? <Park park={renderedPark} /> : null}
-      {/* {showPark ? <Park park={myParks} key={myParks.id} /> : null} */}
+
       <div className="">
         <TripForm />
         <ParkForm />
