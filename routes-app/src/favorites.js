@@ -1,19 +1,31 @@
 import react from "react";
+import Park from "./park";
+import { useState } from "react";
 
-export default function Favorites({ myParks }) {
+export default function Favorites({ myParks, renderPark }) {
+  const [showPark, setShowPark] = useState(false);
+
+  function renderPark(e) {
+    console.log("park name:", { myParks });
+    setShowPark(!showPark);
+  }
+
   const favoriteParks = myParks.map((park) => (
     <div>
-      <li key={park.id}>{park.name}</li>
+      <li key={park.id} onClick={renderPark}>
+        {park.name}
+      </li>
       <span></span>
     </div>
   ));
 
   return (
-    <div>
+    <div className="">
       <div className="list">
         <h1>Favorite Parks</h1>
         <ul>{favoriteParks}</ul>
       </div>
+      {showPark ? <Park park={myParks} key={myParks.id} /> : null}
     </div>
   );
 }
