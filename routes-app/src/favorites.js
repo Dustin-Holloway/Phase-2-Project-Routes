@@ -34,7 +34,7 @@ export default function Favorites({ myParks, renderPark, userInfo, setUserInfo, 
       {showPark ? <Park park={renderedPark} /> : null}
 
       <div className="">
-        <TripForm />
+        {/* <TripForm /> */}
         <ParkForm addNewUser={addNewUser} userInfo={userInfo} setUserInfo={setUserInfo} />
       </div>
     </div>
