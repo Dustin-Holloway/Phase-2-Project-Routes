@@ -66,21 +66,20 @@ input {
 }
 
 .list {
-  position: relative;
-  
-  border-radius: 5px;
-  padding-top: 25px;
-  margin-top: 50px;
 
+  border-radius: 2px;
+  padding-top: 25px;
+
+  margin-top: 0px;
   margin-left: 10px;
   background-color: rgb(135, 119, 91);
   font-weight: bolder;
   color: white;
   text-align: left;
   justify-content: center;
-  display: block;
-  width: 20%;
-  height: 600px;
+  height: 100vh;
+  width: 25%;
+
 
 
 }
@@ -170,7 +169,6 @@ img {
   border-radius: 2px;
   color: white;
   height: 650px;
-  display: block;
 
 
 

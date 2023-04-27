@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import { ButtonMod } from "./styles/button.styles";
 
-
-export default function ParkForm({userInfo, setUserInfo, addNewUser}) {
-  const [formData, setFormData] = useState({userName: "", userEmail: ""})
+export default function ParkForm({ userInfo, setUserInfo, addNewUser }) {
+  const [formData, setFormData] = useState({ userName: "", userEmail: "" });
   const handleChange = (e) => {
-    setFormData({...formData, [e.target.name]: e.target.value})
-  }
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
   const [addReview, setAddReview] = useState("");
 
- 
   const handleSubscribe = (e) => {
     e.preventDefault();
-    addNewUser(formData)
-  }
+    addNewUser(formData);
+  };
   return (
     <div className="form-div">
       <h1>Subscribe for Updates</h1>
