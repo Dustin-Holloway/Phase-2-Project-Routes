@@ -6,7 +6,7 @@ export default function Landing() {
     <div className="landing-container">
       <Link to="/gallery">
         <div className="image-container">
-          <h1>Let's take a trip!</h1>
+          <h1>Let's plan a roadtrip!</h1>
 
           <img
             className="landing-image"
