@@ -15,6 +15,7 @@ function App() {
   const [myParks, setMyParks] = useState([]);
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [isliked, setLiked] = useState(true);
 
   const loadMoreResults = () => {
     const itemsPerPage = 25;
@@ -23,7 +24,15 @@ function App() {
     return filteredByState.slice(indexOfFirstItem, indexOfLastItem);
   };
 
-  const [userInfo, setUserInfo] = useState([{ userName: "", userEmail: "", parksList: []}]);
+  const [userInfo, setUserInfo] = useState([
+    { userName: "", userEmail: "", parksList: [] },
+  ]);
+
+  const parkObject = {
+    name: "",
+    state: "",
+    activities: "",
+  };
 
   useEffect(() => {
     fetch("http://localhost:4000/profile")
@@ -35,7 +44,6 @@ function App() {
     setUserInfo([...userInfo, data]);
   };
   const addNewUser = (formData) => {
-    console.log(formData);
     fetch("http://localhost:4000/profile", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -51,10 +59,32 @@ function App() {
       .then((data) => setParks(data.data));
   }, []);
 
+  useEffect(() => {
+    fetch("http://localhost:4000/parks")
+      .then((res) => res.json())
+      .then((data) => setMyParks(data));
+  }, []);
+
   function handleClick(park) {
-    if (!myParks.includes(park)) {
-      setMyParks([...myParks, park]);
-    } else return;
+    setLiked(!isliked);
+
+    fetch("http://localhost:4000/parks", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        name: park.name,
+        activities: park.activities,
+        state: park.states,
+        images: park.images,
+        liked: isliked,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (!myParks.includes(data)) {
+          setMyParks([...myParks, data]);
+        } else return;
+      });
   }
 
   const filteredByState = [...parks].filter((park) =>

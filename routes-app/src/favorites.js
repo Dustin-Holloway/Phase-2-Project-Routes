@@ -18,6 +18,7 @@ export default function Favorites({
   const [renderedPark, setRenderedPark] = useState("");
 
   function renderPark(park) {
+    console.log(park);
     setRenderedPark(park);
     if (!showPark) {
       setShowPark(!showPark);
