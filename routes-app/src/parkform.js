@@ -14,6 +14,18 @@ export default function ParkForm({userInfo, setUserInfo, addNewUser}) {
     e.preventDefault();
     addNewUser(formData)
   }
+
+  const handleAddToTrip = (e) => {
+    e.preventDefault();
+
+  }
+
+  const [isClicked, setIsClicked] = useState(true)
+  const handleIsClicked = () => {
+    setIsClicked(!isClicked)
+  }
+
+
   return (
     <div className="form-div">
       <h1>Subscribe for Updates</h1>
@@ -35,9 +47,15 @@ export default function ParkForm({userInfo, setUserInfo, addNewUser}) {
           name="userEmail"
         />
         <ButtonMod>Subscribe</ButtonMod>
-        {/* 
-        <input></input>
-        <input></input> */}
+        <h2>Add Park to Trip</h2>
+        <form onSubmit={handleAddToTrip} />
+        <input 
+          onChange={handleIsClicked}
+          value={!isClicked}
+          type="checkbox"
+          className="checkbox"
+          />
+       
       </form>
     </div>
   );
