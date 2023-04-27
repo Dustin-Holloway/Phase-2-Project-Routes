@@ -71,6 +71,7 @@ input {
   border-radius: 5px;
   padding-top: 25px;
   margin-top: 50px;
+
   margin-left: 10px;
   background-color: rgb(135, 119, 91);
   font-weight: bolder;
@@ -80,6 +81,7 @@ input {
   display: block;
   width: 20%;
   height: 600px;
+
 
 }
 
@@ -101,16 +103,16 @@ input {
   margin-right: auto;
   display: flex;
   flex-wrap: wrap;
-  max-width: 800px;
+  max-width: 1000px;
   height: 800px;
   flex-direction: row;
 
 }
 
 .card {
-  margin: 3px;
-  border-radius: 5px;
-  width: 150px;
+  margin: 5px;
+  border-radius: 2px;
+  width: 300px;
   height: 150px;
   overflow: hidden;
 
@@ -157,37 +159,53 @@ img {
 }
 
 .park-container {
-  padding: 0;
-  text-align: center;
+  margin-top: none;
+  padding: 10px;
+  text-align: left;
   background-color:rgb(135, 119, 91);
   width: 40%;
   position: absolute;
-  top: 205px;
-  left: 400px;
-  border-radius: 5px;
+  top: 182px;
+  left: 375px;
+  border-radius: 2px;
   color: white;
   height: 650px;
   display: block;
 
 
+
 }
 
 .img-container {
-
-  width: 75%;
-  height: 300px;
-  border-radius: 5px;
-  overflow: hidden;
+padding: 15px;
   margin-left: auto;
   margin-right: auto;
 
+  overflow: hidden;
 }
 
-.activities {
-display: block;
-font-size: 15px;
+
+
+
+.park-container h3 {
+  padding-left: 15px;
+}
+
+.activities li {
+  margin-bottom: 0;
+font-size: 13px;
+width: 200px;
+line-height: 15px;
+padding: 0px;
+text-align: left;
+position: relative;
+left: -40px;
+top: -15px;
+
 color: rgb(255, 255, 255);
 }
+
+
 
 .park-name {
   position: relative;
@@ -195,16 +213,28 @@ color: rgb(255, 255, 255);
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight:300;
   color: white;
+  width: 75%
 
 }
 
-.landing-image {
+.image-container {
   position: relative;
-  top: -175px;
+  top: -150px;
+  padding: none;
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
+
 }
 
-.landing-container h1 {
-  position: relative;
-  top: 500px;
+.image-container h1{
   z-index: 2;
+  position: relative;
+  top: 350px;
+  text-decoration: none;
+
+
+
+
 }
+
