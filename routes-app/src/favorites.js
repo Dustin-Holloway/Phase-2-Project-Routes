@@ -10,6 +10,9 @@ export default function Favorites({
   userInfo,
   setUserInfo,
 }) {
+
+export default function Favorites({ myParks, renderPark, userInfo, setUserInfo, addNewUser }) {
+
   const [showPark, setShowPark] = useState(false);
   const [renderedPark, setRenderedPark] = useState("");
 
