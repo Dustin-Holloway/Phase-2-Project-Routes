@@ -3,7 +3,7 @@ import "./App.css";
 import { useState } from "react";
 import { IoHeartOutline, IoHeart } from "react-icons/io5";
 
-export default function Card({ park, handleClick }) {
+export default function Card({ park, handleClick, postPark }) {
   const [liked, setLiked] = useState(true);
 
   function handleLiked(park) {

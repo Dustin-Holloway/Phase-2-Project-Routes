@@ -24,29 +24,26 @@ function App() {
   };
 
   const [userInfo, setUserInfo] = useState([{ userName: "", userEmail: "" }]);
- 
+
   useEffect(() => {
-        fetch("http://localhost:4000/profile")
-          .then((r) => r.json())
-          .then((data) => setUserInfo(data))
-      }, []);
+    fetch("http://localhost:4000/profile")
+      .then((r) => r.json())
+      .then((data) => setUserInfo(data));
+  }, []);
 
-  const updateUserInfo = (data)=>{
-    setUserInfo([...userInfo, data])
-  }
+  const updateUserInfo = (data) => {
+    setUserInfo([...userInfo, data]);
+  };
   const addNewUser = (formData) => {
-    console.log(formData)
-      fetch("http://localhost:4000/profile",{
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
-      }).then((r)=>r.json()).then((data) => updateUserInfo(data))
-   };
-
-
-
-
-  
+    console.log(formData);
+    fetch("http://localhost:4000/profile", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+      .then((r) => r.json())
+      .then((data) => updateUserInfo(data));
+  };
 
   useEffect(() => {
     fetch(`https://developer.nps.gov/api/v1/parks?limit=1000&api_key=${apiKey}`)
@@ -96,7 +93,6 @@ function App() {
         </Route>
 
         <Route path="/Favorites">
-
           <Header className="header" />
 
           <Favorites
@@ -106,8 +102,7 @@ function App() {
             myParks={myParks}
             setMyParks={setMyParks}
           />
-
-       </Route>
+        </Route>
       </Switch>
     </div>
   );
