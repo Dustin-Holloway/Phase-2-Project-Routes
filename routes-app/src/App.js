@@ -23,7 +23,7 @@ function App() {
     return filteredByState.slice(indexOfFirstItem, indexOfLastItem);
   };
 
-  const [userInfo, setUserInfo] = useState([{ userName: "", userEmail: "" }]);
+  const [userInfo, setUserInfo] = useState([{ userName: "", userEmail: "", parksList: []}]);
 
   useEffect(() => {
     fetch("http://localhost:4000/profile")
