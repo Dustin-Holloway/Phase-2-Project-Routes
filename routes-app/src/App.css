@@ -2,7 +2,10 @@
 .header li {
   font-size: 30px;
   color:rgba(237, 155, 15, 0.926);
-  font-weight: 400;
+  font-weight: bold;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
   
 }
 
@@ -11,10 +14,10 @@
   align-items: center;
   height: 150px;
   width: 100%;
-  background-color: rgb(85, 80, 80);
+  background-color: rgb(94, 84, 67);
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: center;
   border-bottom-width: 5px;
   border-bottom-color: rgb(241, 185, 30);
   border-style: solid;
@@ -160,17 +163,19 @@ img {
 
 .park-container {
   margin-top: none;
-  padding: 10px;
+  padding: 15px;
   text-align: left;
   background-color:rgb(135, 119, 91);
   width: 40%;
   position: absolute;
-  top: 182px;
-  left: 375px;
-  border-radius: 2px;
+  top: 200px;
+  left: 250px;
+  border-radius: 5px;
   color: white;
   height: 650px;
   display: block;
+  margin-left: auto;
+  margin-right: auto;
 
 
 
@@ -185,7 +190,10 @@ padding: 15px;
 }
 
 
-
+.park-container h1 {
+  font-size: 40px;
+  text-align: center;
+}
 
 .park-container h3 {
   padding-left: 15px;
@@ -211,7 +219,7 @@ color: rgb(255, 255, 255);
   position: relative;
   top: -190px;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-weight:300;
+  font-weight:400;
   color: white;
   width: 75%
 
@@ -224,17 +232,16 @@ color: rgb(255, 255, 255);
   margin-left: auto;
   margin-right: auto;
   width: 700px;
-
+  text-decoration: none;
 }
 
 .image-container h1{
   z-index: 2;
   position: relative;
   top: 350px;
-  text-decoration: none;
-
-
-
-
 }
 
+
+.trip {
+  text-decoration: ;
+}
