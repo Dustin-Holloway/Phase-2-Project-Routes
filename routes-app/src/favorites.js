@@ -4,7 +4,13 @@ import { useState } from "react";
 import TripForm from "./tripform";
 import ParkForm from "./parkform";
 
+<<<<<<< HEAD
 export default function Favorites({ myParks, renderPark, userInfo, setUserInfo, addNewUser }) {
+=======
+
+export default function Favorites({ myParks, renderPark, userInfo, setUserInfo }) {
+
+>>>>>>> 2ba80cbbc7d2c4f39132b30ba6a43e3829e3e739
   const [showPark, setShowPark] = useState(false);
   const [renderedPark, setRenderedPark] = useState("");
 
@@ -31,6 +37,7 @@ export default function Favorites({ myParks, renderPark, userInfo, setUserInfo, 
         <ul>{favoriteParks}</ul>
       </div>
       {showPark ? <Park park={renderedPark} /> : null}
+
       <div className="">
         <TripForm />
         <ParkForm addNewUser={addNewUser} userInfo={userInfo} setUserInfo={setUserInfo} />
