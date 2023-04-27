@@ -96,6 +96,9 @@ function App() {
         </Route>
 
         <Route path="/Favorites">
+
+          <Header className="header" />
+
           <Favorites
             userInfo={userInfo}
             setUserInfo={setUserInfo}
@@ -103,7 +106,7 @@ function App() {
             myParks={myParks}
             setMyParks={setMyParks}
           />
-          <Header className="header" />
+
        </Route>
       </Switch>
     </div>
