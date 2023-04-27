@@ -23,13 +23,27 @@ function App() {
     return filteredByState.slice(indexOfFirstItem, indexOfLastItem);
   };
 
-  const [userInfo, setUserInfo]= useState([])
+  const [userInfo, setUserInfo] = useState([{ userName: "", userEmail: "" }]);
+ 
+  useEffect(() => {
+        fetch("http://localhost:4000/profile")
+          .then((r) => r.json())
+          .then((data) => setUserInfo(data))
+      }, []);
 
-    useEffect(()=> {
-      fetch("http://localhost:4000/profile")
-        .then((r)=>r.json())
-        .then((data)=>setUserInfo(data))
-      },[])
+  const updateUserInfo = (data)=>{
+    setUserInfo([...userInfo, data])
+  }
+  const addNewUser = (formData) => {
+    console.log(formData)
+      fetch("http://localhost:4000/profile",{
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      }).then((r)=>r.json()).then((data) => updateUserInfo(data))
+   };
+
+
 
 
   
@@ -88,6 +102,7 @@ function App() {
           <Favorites
             userInfo={userInfo}
             setUserInfo={setUserInfo}
+            addNewUser={addNewUser}
             myParks={myParks}
             setMyParks={setMyParks}
           />
