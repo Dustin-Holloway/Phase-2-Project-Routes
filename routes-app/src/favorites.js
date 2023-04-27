@@ -4,13 +4,12 @@ import { useState } from "react";
 import TripForm from "./tripform";
 import ParkForm from "./parkform";
 
-<<<<<<< HEAD
-export default function Favorites({ myParks, renderPark, userInfo, setUserInfo, addNewUser }) {
-=======
+<<<<<<<<< Temporary merge branch 1
 
 export default function Favorites({ myParks, renderPark, userInfo, setUserInfo }) {
 
->>>>>>> 2ba80cbbc7d2c4f39132b30ba6a43e3829e3e739
+export default function Favorites({ myParks, renderPark, userInfo, setUserInfo, addNewUser }) {
+
   const [showPark, setShowPark] = useState(false);
   const [renderedPark, setRenderedPark] = useState("");
 
