@@ -3,6 +3,8 @@ import Park from "./park";
 import { useState } from "react";
 import TripForm from "./tripform";
 import ParkForm from "./parkform";
+import { Switch, Route, Link } from "react-router-dom";
+import "./App.css";
 
 export default function Favorites({
   myParks,
@@ -22,19 +24,28 @@ export default function Favorites({
     }
   }
 
-  const favoriteParks = myParks.map((park) => (
-    <li key={park.id} onClick={(e) => renderPark(park)}>
-      {park.name}
-    </li>
-  ));
+  const favoriteParks = myParks.map((park) => {
+    const parkName = park.name.replace(/\s/g, "");
+    return (
+      <li key={park.id} onClick={(e) => renderPark(park)}>
+        <Link className="links" to={`/Favorites/${parkName}`}>
+          {park.name}
+        </Link>
+      </li>
+    );
+  });
 
   return (
     <div className="">
-      <div className="list">
-        <h1>Favorite Parks</h1>
-        <ul>{favoriteParks}</ul>
-      </div>
-      {showPark ? <Park park={renderedPark} /> : null}
+      <Switch>
+        <Route path={favoriteParks.name}>
+          <div className="list">
+            <h1>Favorite Parks</h1>
+            <ul>{favoriteParks}</ul>
+          </div>
+          {showPark ? <Park park={renderedPark} /> : null}
+        </Route>
+      </Switch>
 
       <div className="">
         {/* <TripForm /> */}
