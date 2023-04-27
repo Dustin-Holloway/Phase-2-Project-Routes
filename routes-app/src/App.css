@@ -38,11 +38,12 @@ form {
 }
 
 .form-div {
-  position: relative;
-  /* left: 700px; */
-  top: -675px;
-  margin-left: auto;
-  border-radius: 5px;
+    position: relative;
+    top: -675px;
+    margin-left: auto;
+    border-radius: 5px;
+    border-style:inset;
+    border-color:antiquewhite;
     padding-top: 25px;
     padding-left: 15px;
     padding-right: 15px;
@@ -72,6 +73,8 @@ input {
   position: relative;
   
   border-radius: 5px;
+  border-style: inset;
+  border-color: antiquewhite;
   padding-top: 25px;
   margin-top: 50px;
 
@@ -169,7 +172,7 @@ img {
   width: 40%;
   position: absolute;
   top: 200px;
-  left: 250px;
+  left: 350px;
   border-radius: 5px;
   color: white;
   height: 650px;
@@ -245,3 +248,15 @@ color: rgb(255, 255, 255);
 .trip {
   text-decoration: ;
 }
+
+.checkbox {
+      background-color: initial;
+      cursor: default;
+      appearance: auto;
+      box-sizing: border-box;
+      margin: 3px 3px 3px 4px;
+      padding: initial;
+      border: initial;
+      position: relative;
+      
+  }
