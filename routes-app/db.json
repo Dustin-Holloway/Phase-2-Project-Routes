@@ -13,10 +13,21 @@
       "postId": 1
     }
   ],
-  "profile": {
-    "name": "",
-    "id": 1,
-    "email": ""
-
-  }
+  "profile": [
+    {
+      "id": 1,
+      "userName": "qwer",
+      "userEmail": "qwer"
+    },
+    {
+      "userName": "asdf",
+      "userEmail": "asfd",
+      "id": 2
+    },
+    {
+      "userName": "qwrtqwrtwqt",
+      "userEmail": "asfdqwtqwtwrt",
+      "id": 3
+    }
+  ]
 }

@@ -1,23 +1,17 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import { ButtonMod } from "./styles/button.styles";
 
-export default function ParkForm(userInfo, setUserInfo) {
-  const [userEmail, setUserEmail] = useState("");
-  const [userName, setUserName] = useState("");
+export default function ParkForm({userInfo, setUserInfo, addNewUser}) {
+  const [formData, setFormData] = useState({userName: "", userEmail: ""})
+  const handleChange = (e) => {
+    setFormData({...formData, [e.target.name]: e.target.value})
+  }
   const [addReview, setAddReview] = useState("");
-  const Button = styled.button
-    `background-color: black;
-    color: white;
-    font-size: 20px;
-    padding: 10px 60px;
-    border-radius: 5px;
-    margin: 10px 0px;
-    cursor: pointer;`;
 
-  function handleSubscribe(e) {
+ 
+  const handleSubscribe = (e) => {
     e.preventDefault();
-    console.log(e.target.userEmail.value);
-    console.log(e.target.userName.value);
+    addNewUser(formData)
   }
   return (
     <div className="form-div">
@@ -25,19 +19,21 @@ export default function ParkForm(userInfo, setUserInfo) {
       <form onSubmit={handleSubscribe}>
         <label htmlFor="Subscribe">Your Name</label>
         <input
-          onChange={(e) => setUserName(e.target.value)}
-          value={userName}
+          onChange={handleChange}
+          value={formData.userName}
           type="text"
           id="userName"
+          name="userName"
         />
         <label htmlFor="Subscribe">Your Email</label>
         <input
-          onChange={(e) => setUserEmail(e.target.value)}
-          value={userEmail}
+          onChange={handleChange}
+          value={formData.userEmail}
           type="text"
           id="userEmail"
+          name="userEmail"
         />
-        <Button>Subscribe</Button>
+        <ButtonMod>Subscribe</ButtonMod>
         {/* 
         <input></input>
         <input></input> */}
