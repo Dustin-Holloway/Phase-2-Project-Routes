@@ -20,7 +20,6 @@ function App() {
   const [showPark, setShowPark] = useState(false);
   const [formData, setFormData] = useState({ userName: "", userEmail: "" });
 
-
   const loadMoreResults = () => {
     const itemsPerPage = 25;
     const indexOfLastItem = currentPage * itemsPerPage;
@@ -102,14 +101,12 @@ function App() {
   }
 
   function handleDelete(park) {
-    if (showPark) {
-      setShowPark(!showPark) &&
-        fetch(`http://localhost:4000/parks/${park.id}`, {
-          method: "DELETE",
-        });
-      const updatedParks = myParks.filter((item) => item.id !== park.id);
-      setMyParks(updatedParks);
-    }
+    fetch(`http://localhost:4000/parks/${park.id}`, {
+      method: "DELETE",
+      headers: { "content-type": "application/json" },
+    });
+    const updatedParks = myParks.filter((item) => item.id !== park.id);
+    setMyParks(updatedParks);
   }
   return (
     <div>
@@ -147,13 +144,11 @@ function App() {
             addNewUser={addNewUser}
             myParks={myParks}
             setMyParks={setMyParks}
-
             handleDelete={handleDelete}
             setShowPark={setShowPark}
             showPark={showPark}
             formData={formData}
             setFormData={setFormData}
-
           />
         </Route>
       </Switch>
