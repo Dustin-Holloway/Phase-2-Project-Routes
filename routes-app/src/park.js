@@ -8,7 +8,7 @@ export default function Park({ park }) {
 
   return (
     <div className="park-container">
-      <h1>{park.fullName}</h1>
+      <h1>{park.name}</h1>
       <div className="img-container">
         <img src={park.images[1].url} alt={park.name} />
         <a href={park.url}>visitors center</a>
