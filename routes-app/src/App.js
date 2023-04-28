@@ -16,6 +16,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [isliked, setLiked] = useState(true);
+  const [showPark, setShowPark] = useState(false);
 
   const loadMoreResults = () => {
     const itemsPerPage = 25;
@@ -77,6 +78,7 @@ function App() {
         state: park.states,
         images: park.images,
         liked: isliked,
+        url: park.url,
       }),
     })
       .then((res) => res.json())
@@ -95,6 +97,16 @@ function App() {
     setSearch(e.target.value);
   }
 
+  function handleDelete(park) {
+    if (showPark) {
+      setShowPark(!showPark) &&
+        fetch(`http://localhost:4000/parks/${park.id}`, {
+          method: "DELETE",
+        });
+      const updatedParks = myParks.filter((item) => item.id !== park.id);
+      setMyParks(updatedParks);
+    }
+  }
   return (
     <div>
       <Switch>
@@ -131,6 +143,9 @@ function App() {
             addNewUser={addNewUser}
             myParks={myParks}
             setMyParks={setMyParks}
+            handleDelete={handleDelete}
+            setShowPark={setShowPark}
+            showPark={showPark}
           />
         </Route>
       </Switch>
