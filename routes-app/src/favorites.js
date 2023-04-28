@@ -12,16 +12,20 @@ export default function Favorites({
   userInfo,
   setUserInfo,
   addNewUser,
+  handleDelete,
+  showPark,
+  setShowPark,
   formData,
   setFormData
+
 }) {
-  console.log(myParks);
-  const [showPark, setShowPark] = useState(false);
   const [renderedPark, setRenderedPark] = useState("");
 
   function renderPark(park) {
-    console.log(park);
     setRenderedPark(park);
+    if (showPark) {
+      setShowPark(!showPark);
+    }
     if (!showPark) {
       setShowPark(!showPark);
     }
@@ -34,6 +38,7 @@ export default function Favorites({
         <Link className="links" to={`/Favorites/${parkName}`}>
           {park.name}
         </Link>
+        <button onClick={(e) => handleDelete(park)}>Delete</button>
       </li>
     );
   });
