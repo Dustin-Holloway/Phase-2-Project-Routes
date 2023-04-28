@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { ButtonMod } from "./styles/button.styles";
 
 
-export default function ParkForm({userInfo, setUserInfo, addNewUser}) {
-  const [formData, setFormData] = useState({userName: "", userEmail: ""})
+export default function ParkForm({userInfo, setUserInfo, addNewUser, formData, setFormData}) {
+  
   const handleChange = (e) => {
     setFormData({...formData, [e.target.name]: e.target.value})
   }

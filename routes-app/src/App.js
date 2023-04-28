@@ -16,6 +16,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [isliked, setLiked] = useState(true);
+  const [formData, setFormData] = useState({ userName: "", userEmail: "" });
 
   const loadMoreResults = () => {
     const itemsPerPage = 25;
@@ -51,6 +52,7 @@ function App() {
     })
       .then((r) => r.json())
       .then((data) => updateUserInfo(data));
+    setFormData({ userName: "", userEmail: "" });
   };
 
   useEffect(() => {
@@ -131,6 +133,8 @@ function App() {
             addNewUser={addNewUser}
             myParks={myParks}
             setMyParks={setMyParks}
+            formData={formData}
+            setFormData={setFormData}
           />
         </Route>
       </Switch>
