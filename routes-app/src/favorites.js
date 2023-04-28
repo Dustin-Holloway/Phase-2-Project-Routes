@@ -15,6 +15,9 @@ export default function Favorites({
   handleDelete,
   showPark,
   setShowPark,
+  formData,
+  setFormData
+
 }) {
   const [renderedPark, setRenderedPark] = useState("");
 
@@ -58,6 +61,8 @@ export default function Favorites({
           addNewUser={addNewUser}
           userInfo={userInfo}
           setUserInfo={setUserInfo}
+          formData={formData}
+          setFormData={setFormData}
         />
       </div>
     </div>
