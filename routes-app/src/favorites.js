@@ -12,6 +12,8 @@ export default function Favorites({
   userInfo,
   setUserInfo,
   addNewUser,
+  formData,
+  setFormData
 }) {
   console.log(myParks);
   const [showPark, setShowPark] = useState(false);
@@ -54,6 +56,8 @@ export default function Favorites({
           addNewUser={addNewUser}
           userInfo={userInfo}
           setUserInfo={setUserInfo}
+          formData={formData}
+          setFormData={setFormData}
         />
       </div>
     </div>
