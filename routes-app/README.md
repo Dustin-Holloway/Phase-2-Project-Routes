@@ -3,11 +3,11 @@
 ## Description
 This project is a React application that is intended to help users research national parks and plan a road trip. The application fetches data from the National Parks Service API and displays a list of parks. Users begin on a landing page as seen below:
 
-![Alt text](src/New%20folder/landing%20page%20gif.gif)
+![Alt text](src/screenshots/landing%20page.gif)
 
 After clicking on the map, users are routed to a page where the app fetches a list of parks from the National Parks Service APS and renders them as individual tiles (see below). Here the user can filter the list of parks by location using US State abbreviations and add parks to a list of their favorite parks. 
 
- 
+ ![Alt text](src/screenshots/gallery.gif)
 
 
 
