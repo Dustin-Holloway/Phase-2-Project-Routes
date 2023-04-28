@@ -39,7 +39,8 @@ form {
     top: 150px;
     margin-left: auto;
     border-radius: 5px;
-    border-style:inset;
+    border-style:solid;
+    border-width: .5px;
     border-color:antiquewhite;
     padding-top: 25px;
     padding-left: 15px;
@@ -67,8 +68,11 @@ input {
 
 .list {
   position: relative;
+  left: 15px;
+  top: -5px;
   border-radius: 5px;
-  border-style: inset;
+  border-style: solid;
+  border-width: .5px;
   border-color: antiquewhite;
   padding-top: 25px;
   margin-top: 50px;
@@ -108,7 +112,7 @@ input {
 
 .card {
   margin: 5px;
-  border-radius: 2px;
+  border-radius: 4px;
   width: 300px;
   height: 150px;
   overflow: hidden;
@@ -163,8 +167,10 @@ img {
   width: 40%;
   position: absolute;
   top: 200px;
-
-  left: 300px;
+  border-color: white;
+  border-style: solid;
+  border-width: .5px;
+  left: 270px;
   border-radius: 5px;
   color: white;
   height: 650px;
@@ -234,11 +240,13 @@ color: rgb(255, 255, 255);
   z-index: 2;
   position: relative;
   top: 350px;
+  text-decoration: none;
 }
 
 
 .trip {
-  text-decoration: ;
+  text-decoration: none;
+  color: black;
 }
 
 

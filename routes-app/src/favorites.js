@@ -16,8 +16,7 @@ export default function Favorites({
   showPark,
   setShowPark,
   formData,
-  setFormData
-
+  setFormData,
 }) {
   const [renderedPark, setRenderedPark] = useState("");
 
@@ -25,8 +24,7 @@ export default function Favorites({
     setRenderedPark(park);
     if (showPark) {
       setShowPark(!showPark);
-    }
-    if (!showPark) {
+    } else {
       setShowPark(!showPark);
     }
   }
@@ -38,7 +36,7 @@ export default function Favorites({
         <Link className="links" to={`/Favorites/${parkName}`}>
           {park.name}
         </Link>
-        <button onClick={(e) => handleDelete(park)}>Delete</button>
+        <button onClick={(e) => handleDelete(park)}>Remove</button>
       </li>
     );
   });

@@ -16,9 +16,11 @@ function App() {
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [isliked, setLiked] = useState(true);
-
   const [showPark, setShowPark] = useState(false);
   const [formData, setFormData] = useState({ userName: "", userEmail: "" });
+  const [userInfo, setUserInfo] = useState([
+    { userName: "", userEmail: "", parksList: [] },
+  ]);
 
   const loadMoreResults = () => {
     const itemsPerPage = 25;
@@ -26,10 +28,6 @@ function App() {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     return filteredByState.slice(indexOfFirstItem, indexOfLastItem);
   };
-
-  const [userInfo, setUserInfo] = useState([
-    { userName: "", userEmail: "", parksList: [] },
-  ]);
 
   const parkObject = {
     name: "",
@@ -107,6 +105,9 @@ function App() {
     });
     const updatedParks = myParks.filter((item) => item.id !== park.id);
     setMyParks(updatedParks);
+    if (showPark) {
+      setShowPark(!showPark);
+    }
   }
   return (
     <div>
