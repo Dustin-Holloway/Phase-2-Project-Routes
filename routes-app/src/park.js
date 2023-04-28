@@ -18,7 +18,7 @@ export default function Park({ park }) {
       </div>
       <h3>Location</h3>
       <ul className="activities">
-        <li>{park.states}</li>
+        <li>{park.state}</li>
       </ul>
       <h3>Activities</h3>
       <ul className="activities">{listItem}</ul>
